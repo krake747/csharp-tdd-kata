@@ -52,13 +52,17 @@ public class Game
         return score;
     }
 
-    private bool IsStrike(int roll)
-    {
-        return _rolls[roll] == 10;
-    }
+    /// <summary>
+    /// Check if roll is a strike.
+    /// </summary>
+    /// <param name="roll">Current roll</param>
+    /// <returns><see langword="true"/> if strike else <see langword="false"/></returns>
+    private bool IsStrike(int roll) => _rolls[roll] == 10;
 
-    private bool IsSpare(int roll)
-    {
-        return _rolls[roll] + _rolls[roll + 1] == 10;
-    }
+    /// <summary>
+    /// Check if roll is a spare.
+    /// </summary>
+    /// <param name="roll">Current roll</param>
+    /// <returns><see langword="true"/> if spare else <see langword="false"/></returns>
+    private bool IsSpare(int roll) => _rolls[roll] + _rolls[roll + 1] == 10;
 }
