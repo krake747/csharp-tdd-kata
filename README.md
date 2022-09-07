@@ -4,6 +4,7 @@ Guide to Test-Driven-Development
 
 https://tddmanifesto.com/a-clean-test/
 
-## Bowling Game Kata
+## Exercises from
 
-https://kata-log.rocks/bowling-game-kata
+http://www.tddbuddy.com/
+https://www.programmingwithwolfgang.com/tdd-kata/
