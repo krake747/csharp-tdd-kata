@@ -6,27 +6,21 @@ public class RomanLetters
 {
     public int RomanToInt(string s)
     {
-        char? previousLetter = null;
-        var result = 0;
-        foreach (var letter in s)
+        int result = 0;
+        for (int i = 0; i < s.Length; i++)
         {
-            result += IncreaseValue(previousLetter, letter);
-            previousLetter = letter;
+            var value = LetterValue(s[i]);
+            if (i + 1 < s.Length && value < LetterValue(s[i + 1]))
+            {
+                result -= value;
+            }
+            else
+            {
+                result += value;
+            }
         }
 
         return result;
-    }
-
-    private int IncreaseValue(char? previousLetter, char currentLetter)
-    {
-        var value = LetterValue(currentLetter);
-        return (previousLetter, currentLetter) switch
-        {
-            ('I', 'V') or ('I', 'X') => value - 2,
-            ('X', 'L') or ('X', 'C') => value - 20,
-            ('C', 'D') or ('C', 'M') => value - 200,
-            _ => value,
-        };
     }
 
     private int LetterValue(char c) => c switch
