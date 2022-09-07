@@ -2,7 +2,7 @@
 
 public class Game
 {
-    private readonly List<int> _rolls = new(21); 
+    private readonly List<int> _rollResults = new(21); 
     
     /// <summary>
     /// Score during the game.
@@ -16,7 +16,7 @@ public class Game
     public void Roll(int pins)
     {
         Score += pins;
-        _rolls.Add(pins);
+        _rollResults.Add(pins);
     }
 
     /// <summary>
@@ -33,18 +33,18 @@ public class Game
             if (IsStrike(roll))
             {
                 // Bonus for strike is the next two rolls.
-                score += _rolls[roll] + _rolls[roll + 1] + _rolls[roll + 2];
+                score += _rollResults[roll] + _rollResults[roll + 1] + _rollResults[roll + 2];
                 roll++;
             }
             else if (IsSpare(roll))
             {
                 // Bonus for strike is the next roll.
-                score += 10 + _rolls[roll + 2];
+                score += 10 + _rollResults[roll + 2];
                 roll += 2;
             }
             else
             {
-                score += _rolls[roll] + _rolls[roll + 1];
+                score += _rollResults[roll] + _rollResults[roll + 1];
                 roll += 2;
             }
         }
@@ -57,12 +57,12 @@ public class Game
     /// </summary>
     /// <param name="roll">Current roll</param>
     /// <returns><see langword="true"/> if strike else <see langword="false"/></returns>
-    private bool IsStrike(int roll) => _rolls[roll] == 10;
+    private bool IsStrike(int roll) => _rollResults[roll] == 10;
 
     /// <summary>
     /// Check if roll is a spare.
     /// </summary>
     /// <param name="roll">Current roll</param>
     /// <returns><see langword="true"/> if spare else <see langword="false"/></returns>
-    private bool IsSpare(int roll) => _rolls[roll] + _rolls[roll + 1] == 10;
+    private bool IsSpare(int roll) => _rollResults[roll] + _rollResults[roll + 1] == 10;
 }

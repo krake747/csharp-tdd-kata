@@ -10,7 +10,7 @@ public class GameTests
     private readonly Game _sut = new();
 
     [Fact]
-    public void Roll_Once_ShouldReturnScoreSeven()
+    public void Roll_ShouldReturnScoreOfSeven_WhenPlayerRollsSevenPins()
     {
         // Act
         _sut.Roll(7);
@@ -20,7 +20,7 @@ public class GameTests
     }
 
     [Fact]
-    public void Roll_TwentyTimes_ShouldReturnScoreTwenty_WhenFinshGame() 
+    public void Roll_ShouldReturnScoreOfTwenty_WhenPlayerRollsOnePinTwentyTimes() 
     {
         // Act
         FinishGame(20, 1);
@@ -30,7 +30,7 @@ public class GameTests
     }
 
     [Fact]
-    public void Roll_Twice_ShouldReturnScoreNine_WhenFinshGame()
+    public void Roll_ShouldReturnScoreNine_WhenPlayerRollsTwice()
     {
         // Act
         _sut.Roll(5);
@@ -43,7 +43,7 @@ public class GameTests
     }
 
     [Fact]
-    public void Roll_Spare_ShouldReturnSixteen_WhenFinshGame()
+    public void RollSpare_ShouldReturnSixteen_WhenPlayerRollsASpareThenThree()
     {
         // Act
         _sut.Roll(5);
@@ -57,7 +57,7 @@ public class GameTests
     }
 
     [Fact]
-    public void Roll_Strike_ShouldReturnTwentySix_WhenFinshGame()
+    public void RollStrike_ShouldReturnTwentySix_WhenPlayerRollsAStrikeThenThreeAndFive()
     {
         _sut.Roll(10); // Strike
         _sut.Roll(3);
@@ -71,7 +71,7 @@ public class GameTests
     }
 
     [Fact]
-    public void Roll_PerfectGame_ShouldReturnThreeHundred_WhenFinishGame()
+    public void RollPerfect_ShouldReturnThreeHundred_WhenPlayerRollsTwelveStrikes()
     {
         // Act
         FinishGame(12, 10);

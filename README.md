@@ -1,5 +1,9 @@
 # TDD-Kata
 
-## Bowling
+Guide to Test-Driven-Development
 
-http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata
+https://tddmanifesto.com/a-clean-test/
+
+## Bowling Game Kata
+
+https://kata-log.rocks/bowling-game-kata
